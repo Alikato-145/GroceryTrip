@@ -54,7 +54,7 @@ function joinRoom(req, res) {
   if (!name || !name.trim()) {
     return res
       .status(400)
-      .json({ error: "MISSING_FIELD", message: "ต้องใส่ชื่อ" });
+      .json({ error:"MISSING_FIELD",message:"ต้องใส่ชื่อ"});
   }
   const room = Room.findByCode(code.toUpperCase());
   if (!room) {
@@ -81,6 +81,7 @@ function joinRoom(req, res) {
 // GET /api/rooms/:id
 function getRoom(req, res) {
   const room = req.room || Room.findById(req.params.id);
+  console.log(room);
   if (!room) {
     return res
       .status(404)
