@@ -30,8 +30,8 @@ const GroupInroom = {
   findMembersByGroupId: async (groupId) => {
     return db.prepare("SELECT * FROM groupsInroomMembers WHERE group_id = ?").all(groupId);
   },
-  removeMember: async (memberId) => {
-    db.prepare("DELETE FROM groupsInroomMembers WHERE member_id = ?").run(memberId);
+  removeMember: async (groupId, memberId) => {
+    db.prepare("DELETE FROM groupsInroomMembers WHERE group_id = ? AND member_id = ?").run(groupId, memberId);
   },
 };
 

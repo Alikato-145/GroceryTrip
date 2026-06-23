@@ -28,12 +28,12 @@ CREATE TABLE IF NOT EXISTS members (
   joined_at   TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
-CREATE TABLE IF NOT EXISTS groupsInroom (
+CREATE TABLE IF NOT EXISTS groupInroom (
   id           TEXT PRIMARY KEY,
   room_id      TEXT NOT NULL REFERENCES rooms(id) ON DELETE CASCADE,
   name         TEXT NOT NULL,
   created_at   TEXT NOT NULL DEFAULT (datetime('now')),
-  updated_at   TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at   TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE TABLE IF NOT EXISTS groupsInroomMembers (
   id           TEXT PRIMARY KEY,
